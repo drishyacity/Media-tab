@@ -1,0 +1,254 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">
+            <i class="fas fa-video me-2"></i>Media Tab 4K
+        </h1>
+        <p class="lead">Download videos and media in 4K/8K quality from YouTube, Instagram, Facebook, Pinterest and more!</p>
+    </div>
+</div>
+
+<!-- URL Input Section -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-link me-2"></i>Add Download</h5>
+            </div>
+            <div class="card-body">
+                <form id="urlForm">
+                    <div class="mb-3">
+                        <label for="urlInput" class="form-label">Media URL</label>
+                        <input type="url" class="form-control" id="urlInput" placeholder="Paste video or playlist URL here..." required>
+                        <div class="form-text">Supports YouTube, Instagram, Facebook, Pinterest, and many other platforms</div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-search me-2"></i>Analyze URL
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Video Info Section -->
+<div class="row mb-4" id="videoInfoSection" style="display: none;">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-info-circle me-2"></i>Media Information</h5>
+            </div>
+            <div class="card-body" id="videoInfo">
+                <!-- Video information will be populated here -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Platform Tabs -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs" id="platformTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="youtube-tab" data-bs-toggle="tab" data-bs-target="#youtube" type="button" role="tab">
+                            <i class="fab fa-youtube me-2"></i>YouTube
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="instagram-tab" data-bs-toggle="tab" data-bs-target="#instagram" type="button" role="tab">
+                            <i class="fab fa-instagram me-2"></i>Instagram
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="facebook-tab" data-bs-toggle="tab" data-bs-target="#facebook" type="button" role="tab">
+                            <i class="fab fa-facebook me-2"></i>Facebook
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pinterest-tab" data-bs-toggle="tab" data-bs-target="#pinterest" type="button" role="tab">
+                            <i class="fab fa-pinterest me-2"></i>Pinterest
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="other-tab" data-bs-toggle="tab" data-bs-target="#other" type="button" role="tab">
+                            <i class="fas fa-globe me-2"></i>Other
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="tab-content" id="platformTabContent">
+                    <div class="tab-pane fade show active" id="youtube" role="tabpanel">
+                        <h6>YouTube Features:</h6>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>4K/8K resolution support</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Playlist downloads (100+ videos)</li>
+                            <li><i class="fas fa-check text-success me-2"></i>MP3 audio downloads (128-320 kbps)</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Subtitle downloads</li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="instagram" role="tabpanel">
+                        <h6>Instagram Features:</h6>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>Stories and posts</li>
+                            <li><i class="fas fa-check text-success me-2"></i>IGTV videos</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Reels downloads</li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="facebook" role="tabpanel">
+                        <h6>Facebook Features:</h6>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>Public videos</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Page videos</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Live streams</li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="pinterest" role="tabpanel">
+                        <h6>Pinterest Features:</h6>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>Video pins</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Board downloads</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Idea pins</li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="other" role="tabpanel">
+                        <h6>Other Supported Platforms:</h6>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>TikTok</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Twitter/X</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Vimeo</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Dailymotion</li>
+                            <li><i class="fas fa-check text-success me-2"></i>And 1000+ more sites</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Downloads Section -->
+<div class="row" id="downloads">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0"><i class="fas fa-list me-2"></i>Download Queue</h5>
+                <div>
+                    <button class="btn btn-outline-secondary btn-sm" id="refreshDownloads">
+                        <i class="fas fa-sync-alt me-1"></i>Refresh
+                    </button>
+                    <button class="btn btn-outline-danger btn-sm" id="clearCompleted">
+                        <i class="fas fa-trash me-1"></i>Clear Completed
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <!-- Queue Status -->
+                <div class="row mb-3" id="queueStatus">
+                    <div class="col-md-4">
+                        <div class="text-center">
+                            <div class="h5 mb-1" id="queueSize">0</div>
+                            <small class="text-muted">In Queue</small>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="text-center">
+                            <div class="h5 mb-1" id="activeDownloads">0</div>
+                            <small class="text-muted">Downloading</small>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="text-center">
+                            <div class="h5 mb-1" id="completedDownloads">0</div>
+                            <small class="text-muted">Completed</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Current Download -->
+                <div id="currentDownload" style="display: none;">
+                    <h6><i class="fas fa-download me-2"></i>Currently Downloading:</h6>
+                    <div class="card bg-primary bg-opacity-10 border-primary mb-3">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div>
+                                    <h6 class="card-title mb-1" id="currentTitle">Loading...</h6>
+                                    <small class="text-muted" id="currentUrl">Loading...</small>
+                                </div>
+                                <span class="badge bg-primary" id="currentProgress">0%</span>
+                            </div>
+                            <div class="progress mb-2" style="height: 8px;">
+                                <div class="progress-bar" id="currentProgressBar" style="width: 0%"></div>
+                            </div>
+                            <div class="row text-small">
+                                <div class="col-4">
+                                    <i class="fas fa-tachometer-alt me-1"></i>
+                                    <span id="currentSpeed">0 KB/s</span>
+                                </div>
+                                <div class="col-4">
+                                    <i class="fas fa-clock me-1"></i>
+                                    <span id="currentEta">--:--</span>
+                                </div>
+                                <div class="col-4">
+                                    <i class="fas fa-hdd me-1"></i>
+                                    <span id="currentSize">0 MB</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Downloads List -->
+                <div id="downloadsList">
+                    <div class="text-center text-muted py-4">
+                        <i class="fas fa-inbox fa-3x mb-3"></i>
+                        <h5>No downloads yet</h5>
+                        <p>Add a URL above to start downloading!</p>
+                    </div>
+                </div>
+
+                <!-- Playlists List -->
+                <div id="playlistsList"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Loading Modal -->
+<div class="modal fade" id="loadingModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center py-4">
+                <div class="spinner-border text-primary mb-3" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <h5>Analyzing URL...</h5>
+                <p class="text-muted mb-0">Please wait while we extract media information</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Error Alert -->
+<div class="alert alert-danger alert-dismissible fade" id="errorAlert" role="alert" style="display: none;">
+    <i class="fas fa-exclamation-triangle me-2"></i>
+    <span id="errorMessage"></span>
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+</div>
+
+<!-- Success Alert -->
+<div class="alert alert-success alert-dismissible fade" id="successAlert" role="alert" style="display: none;">
+    <i class="fas fa-check-circle me-2"></i>
+    <span id="successMessage"></span>
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+</div>
+{% endblock %}

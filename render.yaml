@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: media-downloader
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn --bind 0.0.0.0:$PORT main:app"
+    plan: free
+    autoDeploy: false
+    envVars:
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: media-downloader-db
+          property: connectionString
+
+databases:
+  - name: media-downloader-db
+    databaseName: media_downloader
+    user: admin
+    plan: free
