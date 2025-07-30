@@ -18,6 +18,7 @@
 
 ## Configuration:
 ✅ pyproject.toml (Dependencies)
+✅ requirements.txt (Create manually - see README.md)
 ✅ render.yaml (Render deployment)
 ✅ replit.md (Project documentation)
 

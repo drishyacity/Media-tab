@@ -118,6 +118,7 @@ Add these environment variables in Render dashboard:
 ## 🔧 Configuration Files
 
 ### requirements.txt
+Create this file manually in your repository:
 ```
 Flask==3.0.0
 Flask-SQLAlchemy==3.1.1
@@ -127,6 +128,8 @@ psycopg2-binary==2.9.9
 SQLAlchemy==2.0.25
 email-validator==2.1.0
 ```
+
+**Important**: Copy the above content and create `requirements.txt` file manually in your GitHub repository root.
 
 ### render.yaml (Auto-deployment)
 ```yaml
